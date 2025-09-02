@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet href="https://kherrick.github.io/x-ml-data/components/index.xsl" type="text/xsl"?>
+<x-ml>
+  <x-ml-title>x-ml-data</x-ml-title>
+  <x-ml-link>https://kherrick.github.io/x-ml-data/</x-ml-link>
+  <x-ml-description>A technologist and web developer</x-ml-description>
+  <x-ml-revision>d43953f6</x-ml-revision>
+  <x-ml-items>
+    <x-ml-item-ref>
+      ../2025/01/xpath-in-action/
+    </x-ml-item-ref>
+    <x-ml-item-ref>
+      ../2025/01/exercising-xslt/
+    </x-ml-item-ref>
+    <x-ml-item-ref>
+      ../2025/01/aurora-borealis/
+    </x-ml-item-ref>
+    <x-ml-item-ref>
+      ../2024/12/first-post/
+    </x-ml-item-ref>
+  </x-ml-items>
+</x-ml>

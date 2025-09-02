@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet href="https://kherrick.github.io/x-ml-data/components/x-ml-item/x-ml-item.xsl" type="text/xsl"?>
+<x-ml>
+  <x-ml-title>x-ml-data</x-ml-title>
+  <x-ml-link>https://kherrick.github.io/x-ml-data/</x-ml-link>
+  <x-ml-description>A technologist and web developer</x-ml-description>
+  <x-ml-item>
+    <x-ml-item-link>
+      https://kherrick.github.io/x-ml-data/2024/12/first-post/
+    </x-ml-item-link>
+    <x-ml-item-title>Why not use XML?</x-ml-item-title>
+    <x-ml-item-date>Mon, 30 Dec 2024 17:20:00 -0600</x-ml-item-date>
+    <x-ml-item-categories>
+      <x-ml-item-category>markup</x-ml-item-category>
+    </x-ml-item-categories>
+    <x-ml-item-content type="html">
+      <p>Why not use XML? Start it out like this:</p>
+      <x-postpress-code type="xml">
+<pre>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;?xml-stylesheet href="components/index.xsl" type="text/xsl"?&gt;</pre>
+      </x-postpress-code>
+      <p>
+        Notice the reference to the .xsl file? It is
+        <a href="https://developer.mozilla.org/en-US/docs/Web/XSLT">XSLT</a>,
+        which is most often used to convert data between different XML schemas
+        or to convert XML data into web pages or PDF documents.
+      </p>
+      <script type="module">
+        import "https://unpkg.com/x-postpress-code@1.0.7/dist/x-postpress-code.js";
+      </script>
+    </x-ml-item-content>
+  </x-ml-item>
+</x-ml>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet href="https://kherrick.github.io/x-ml-data/components/x-ml-item/x-ml-item.xsl" type="text/xsl"?>
+<x-ml>
+  <x-ml-title>x-ml-data</x-ml-title>
+  <x-ml-link>https://kherrick.github.io/x-ml-data/</x-ml-link>
+  <x-ml-description>A technologist and web developer</x-ml-description>
+  <x-ml-item>
+    <x-ml-item-link>
+      https://kherrick.github.io/x-ml-data/2025/01/aurora-borealis/
+    </x-ml-item-link>
+    <x-ml-item-title>Aurora Borealis</x-ml-item-title>
+    <x-ml-item-date>Wed, 1 Jan 2025 22:46:00 -0600</x-ml-item-date>
+    <x-ml-item-categories>
+      <x-ml-item-category>photos</x-ml-item-category>
+      <x-ml-item-category>new year</x-ml-item-category>
+    </x-ml-item-categories>
+    <x-ml-item-content type="html">
+      <p>
+        Regular photos can be shared as well; for example, on New Year's Day, we
+        were delighted to see the northern lights.
+      </p>
+      <img alt="The Northern Lights" src="https://kherrick.github.io/x-ml-data/2025/01/aurora-borealis/2025-01-01-aurora-borealis.jpg" width="100%"/>
+    </x-ml-item-content>
+  </x-ml-item>
+</x-ml>

@@ -1,0 +1,33 @@
+:root {
+  --aside-md-list-item-display: flex;
+  --aside-md-list-item-justify-content: center;
+  --aside-md-list-item-padding: 2rem 0;
+  --aside-md-list-item-slot-headline-margin-left: 1rem;
+  --aside-md-list-item-slot-start-display: none;
+
+  --x-ml-aside-background-color: #fef7ff;
+  --x-ml-background-color: #f5f5f5;
+  --x-ml-foreground-color: #2b2b2b;
+  --x-ml-icon-color: #49454f;
+  --x-ml-menu-button-icon-color: var(--x-ml-icon-color);
+
+  --md-divider-margin-top: 2rem;
+  --md-icon-button-display: flex;
+  --md-icon-button-icon-color: var(--x-ml-icon-color);
+  --md-list-container-color: var(--x-ml-aside-background-color);
+  --md-list-item-hover-background-color: rgba(0, 0, 0, 0.04);
+}
+
+body {
+  background-color: var(--x-ml-background-color);
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+x-app {
+  display: contents;
+}

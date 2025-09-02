@@ -1,0 +1,54 @@
+x-ml-item-title {
+  font: var(
+      --md-sys-typescale-headline-small-weight,
+      var(--md-ref-typeface-weight-regular, 400)
+    )
+    var(--md-sys-typescale-headline-small-size, 1.5rem) /
+    var(--md-sys-typescale-headline-small-line-height, 2rem)
+    var(
+      --md-sys-typescale-headline-small-font,
+      var(--md-ref-typeface-brand, Roboto)
+    );
+}
+
+x-ml-item-date {
+  display: block;
+  line-height: 1.25;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+x-ml-item-content[type="html"] {
+  line-height: 1.5;
+}
+
+x-ml-item-content[type="html"] a {
+  color: var(--x-ml-foreground-color, #2b2b2b);
+}
+
+x-ml-item-content[type="html"] picture img {
+  display: flex;
+  margin: auto;
+}
+
+x-ml-item-content[type="html"] .gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+x-ml-item-content[type="html"] figure > figcaption {
+  font-size: smaller;
+  min-height: 2rem;
+  text-align: center;
+}
+
+md-divider {
+  border-bottom: 1px dotted
+    var(--md-divider-color, var(--md-sys-color-outline-variant, #cac4d0));
+  box-sizing: border-box;
+  color: var(--md-divider-color, var(--md-sys-color-outline-variant, #cac4d0));
+  display: flex;
+  height: var(--md-divider-thickness, 1px);
+  margin-top: var(--md-divider-margin-top, 2rem);
+  width: 100%;
+}

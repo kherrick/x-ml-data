@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet href="https://kherrick.github.io/x-ml-data/components/x-ml-item/x-ml-item.xsl" type="text/xsl"?>
+<x-ml>
+  <x-ml-title>x-ml-data</x-ml-title>
+  <x-ml-link>https://kherrick.github.io/x-ml-data/</x-ml-link>
+  <x-ml-description>A technologist and web developer</x-ml-description>
+  <x-ml-item>
+    <x-ml-item-link>
+      https://kherrick.github.io/x-ml-data/2025/01/xpath-in-action/
+    </x-ml-item-link>
+    <x-ml-item-title>XPath in Action</x-ml-item-title>
+    <x-ml-item-date>Mon, 6 Jan 2025 20:12:00 -0600</x-ml-item-date>
+    <x-ml-item-categories>
+      <x-ml-item-category>markup</x-ml-item-category>
+    </x-ml-item-categories>
+    <x-ml-item-content type="html">
+      <p>
+        While researching XML, I encountered an article titled
+        "<a href="https://denizaksimsek.com/2023/xpath/">Using XPath in 2023</a>"
+        that provides a concise overview of XPath and introduces an elegant
+        wrapper for
+        <strong><code>document.evaluate</code></strong>,
+        streamlining its implementation.
+      </p>
+
+<x-postpress-code type="javascript">
+<pre>function* xpath(...args) {
+  let path, root = document;
+  if (args.length &gt; 1) [root, path] = args;
+  else [path] = args;
+
+  const nodeIterator = document.evaluate(
+    path,
+    root,
+    null,
+    XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
+    null,
+  );
+
+  for (
+    let node = nodeIterator.iterateNext();
+    node != null;
+    node = nodeIterator.iterateNext()
+  ) {
+    yield node;
+  }
+}
+</pre>
+</x-postpress-code>
+      <p>TypeScript types:</p>
+<x-postpress-code type="typescript">
+<pre>function xpath(path: string): Iterable&lt;Node&gt;;
+function xpath(root: Element, path: string): Iterable&lt;Node&gt;;
+</pre>
+</x-postpress-code>
+
+      <p>Example usage:</p>
+<x-postpress-code type="javascript">
+<pre>xpath('//body').next().value()
+</pre>
+</x-postpress-code>
+
+      <p>
+        Potential alternative using plain
+        <strong><code>document.evaluate</code></strong>
+        :
+      </p>
+<x-postpress-code type="javascript">
+<pre>function xpath(xpathExpression) {
+  const result = document.evaluate(
+    xpathExpression,
+    document,
+    null,
+    XPathResult.ANY_TYPE,
+    null
+  );
+
+  switch (result.resultType) {
+    case XPathResult.UNORDERED_NODE_ITERATOR_TYPE:
+    case XPathResult.ORDERED_NODE_ITERATOR_TYPE:
+      const nodes = [];
+
+      let node;
+
+      while ((node = result.iterateNext())) {
+        nodes.push(node);
+      }
+
+      return nodes;
+    case XPathResult.FIRST_ORDERED_NODE_TYPE:
+    case XPathResult.ANY_UNORDERED_NODE_TYPE:
+      return result.singleNodeValue;
+    case XPathResult.NUMBER_TYPE:
+      return result.numberValue;
+    case XPathResult.STRING_TYPE:
+      return result.stringValue;
+    case XPathResult.BOOLEAN_TYPE:
+      return result.booleanValue;
+    default:
+      return null;
+  }
+}
+</pre>
+</x-postpress-code>
+
+      <p>Example usage:</p>
+
+<x-postpress-code type="javascript">
+<pre>xpath('//body')[0]
+</pre>
+</x-postpress-code>
+      <script type="module">
+        //const cdn1 = "https://unpkg.com/";
+        //const cdn2 = "https://esm.run/";
+        const cdn3 = "https://cdn.skypack.dev/";
+        import(`${cdn3}x-postpress-code@1.0.7/dist/x-postpress-code.js`);
+      </script>
+    </x-ml-item-content>
+  </x-ml-item>
+</x-ml>

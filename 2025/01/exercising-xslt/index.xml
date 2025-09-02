@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet href="https://kherrick.github.io/x-ml-data/components/x-ml-item/x-ml-item.xsl" type="text/xsl"?>
+<x-ml>
+  <x-ml-title>x-ml-data</x-ml-title>
+  <x-ml-link>https://kherrick.github.io/x-ml-data/</x-ml-link>
+  <x-ml-description>A technologist and web developer</x-ml-description>
+  <x-ml-item>
+    <x-ml-item-link>
+      https://kherrick.github.io/x-ml-data/2025/01/exercising-xslt/
+    </x-ml-item-link>
+    <x-ml-item-title>Exercising XSLT</x-ml-item-title>
+    <x-ml-item-date>Sat, 4 Jan 2025 17:26:00 -0600</x-ml-item-date>
+    <x-ml-item-categories>
+      <x-ml-item-category>markup</x-ml-item-category>
+      <x-ml-item-category>stylesheets</x-ml-item-category>
+    </x-ml-item-categories>
+    <x-ml-item-content type="html">
+      <p>
+        It turns out applying
+        <a href="https://developer.mozilla.org/en-US/docs/Web/XSLT">XSLT</a>
+        imperatively using the
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/XSLTProcessor/XSLTProcessor">
+          <strong><code>XSLTProcessor interface</code></strong></a>
+        isn't too difficult at all, and doing so enables the manipulation of XML
+        documents using basic Javascript. To start, setup a new DOM and XSLT
+        processor.
+      </p>
+      <x-postpress-code type="javascript">
+<pre>const domParser = new DOMParser();
+const xsltProcessor = new XSLTProcessor();</pre>
+      </x-postpress-code>
+      <p>Fetch the XSLT file and parse the response to a string.</p>
+      <x-postpress-code type="javascript">
+<pre>const xslResponse = await fetch(
+  "2025/01/exercising-xslt/exercising-xslt.xsl"
+);
+
+const xslText = await xslResponse.text();
+
+const xslStylesheet = domParser.parseFromString(
+  xslText,
+  "application/xml"
+);
+
+xsltProcessor.importStylesheet(xslStylesheet);</pre>
+      </x-postpress-code>
+      <p>
+        After
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/XSLTProcessor">
+          <strong><code>xSLTProcessor</code></strong></a>
+        has imported
+        <strong><code>xslStylesheet</code></strong>,
+        it allows modifiying
+        <strong><code>&lt;xsl:param&gt;</code></strong>
+        values, and executing transformations.
+      </p>
+      <x-postpress-code type="xml">
+<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+  &lt;xsl:output
+    doctype-public=""
+    doctype-system=""
+    indent="yes"
+    method="html"
+  /&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;xsl:for-each select="/x-ml/x-ml-item"&gt;
+      &lt;x-ml-item-title&gt;
+        &lt;link
+          href="components/XMLItemTitle/XMLItemTitle.css"
+          rel="stylesheet"
+        /&gt;
+        &lt;h3&gt;
+          &lt;a&gt;
+            &lt;xsl:attribute name="href"&gt;
+              &lt;xsl:value-of select="normalize-space(x-ml-item-link)" /&gt;
+            &lt;/xsl:attribute&gt;
+            &lt;xsl:value-of select="normalize-space(x-ml-item-title)" /&gt;
+          &lt;/a&gt;
+        &lt;/h3&gt;
+      &lt;/x-ml-item-title&gt;
+    &lt;/xsl:for-each&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+</pre>
+      </x-postpress-code>
+      <p>
+        An XML document is then loaded to a string. Here we'll utilize the
+        <strong>
+          <code>&lt;x-ml-item-title&gt;</code>
+        </strong>
+        tag from this
+        <strong><code>&lt;x-ml-item&gt;</code></strong>
+        source itself.
+      </p>
+      <x-postpress-code type="javascript">
+<pre>const xmlResponse = await fetch("2025/01/exercising-xslt/index.xml");
+const xmlText = await xmlResponse.text();
+const xmlDoc = domParser.parseFromString(xmlText, "application/xml");</pre>
+      </x-postpress-code>
+      <p>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/XSLTProcessor/transformToFragment">
+          Transform the node source to a document fragment</a>
+        and append the result to the target in the DOM.
+      </p>
+      <x-postpress-code type="javascript">
+<pre>const result = xsltProcessor.transformToFragment(xmlDoc, document);
+document.getElementById("exercising-xslt-target").append(result);</pre>
+      </x-postpress-code>
+
+      <div id="exercising-xslt-target"/>
+      <x-postpress-code type="html">
+<pre>&lt;div id="exercising-xslt-target"&gt;&lt;/div&gt;</pre>
+      </x-postpress-code>
+      <p>
+        If JavaScript is enabled, the
+        <strong><code>&lt;x-ml-item-title&gt;</code></strong>
+        should be rendered again, above the example HTML showing the id
+        <strong><code>exercising-xslt-target</code></strong>.
+      </p>
+      <script data-exercising-xslt-base-href="https://kherrick.github.io/x-ml-data/" src="https://kherrick.github.io/x-ml-data/2025/01/exercising-xslt/exercising-xslt.mjs" type="module"/>
+      <script type="module">
+        import "https://unpkg.com/x-postpress-code@1.0.7/dist/x-postpress-code.js";
+      </script>
+    </x-ml-item-content>
+  </x-ml-item>
+</x-ml>
