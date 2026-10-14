@@ -8,6 +8,7 @@
           <xsl:value-of select="normalize-space(/x-ml/x-ml-title)"/>
         </title>
         <base href="https://kherrick.github.io/x-ml-data/"/>
+	<meta http-equiv="origin-trial" content="A0C/6bRfaFm5gyU8UKS7chSNVfxHEe02Fg01hsKphiSQb19hp6058NIhYEAjhJrMxC45lOkEV/j3Hua1xejDJwEAAAB3eyJvcmlnaW4iOiJodHRwczovL2toZXJyaWNrLmdpdGh1Yi5pbzo0NDMiLCJmZWF0dXJlIjoiWFNMVCIsImV4cGlyeSI6MTgxOTY3MDQwMCwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0=">
         <meta charset="utf-8"/>
         <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
         <meta name="description" content="x-ml-data"/>
